@@ -1,0 +1,36 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x156b720 .scope module, "DFlipFlop" "DFlipFlop" 2 1;
+ .timescale 0 0;
+L_0x159cca0 .functor NOT 1, v0x159cb50_0, C4<0>, C4<0>, C4<0>;
+v0x156b840_0 .net "D_i", 0 0, C4<z>; 0 drivers
+v0x159ca10_0 .net "clk_i", 0 0, C4<z>; 0 drivers
+v0x159cab0_0 .net "qBar_o", 0 0, L_0x159cca0; 1 drivers
+v0x159cb50_0 .var "q_o", 0 0;
+v0x159cc00_0 .net "rst_i", 0 0, C4<z>; 0 drivers
+E_0x156b810/0 .event negedge, v0x159cc00_0;
+E_0x156b810/1 .event posedge, v0x159ca10_0;
+E_0x156b810 .event/or E_0x156b810/0, E_0x156b810/1;
+    .scope S_0x156b720;
+T_0 ;
+    %wait E_0x156b810;
+    %load/v 8, v0x159cc00_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_0.0, 8;
+    %set/v v0x159cb50_0, 0, 1;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v0x156b840_0, 1;
+    %set/v v0x159cb50_0, 8, 1;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "DFlipFlop.sv";
