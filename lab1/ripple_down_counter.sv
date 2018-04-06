@@ -5,12 +5,12 @@
 module ripple_down_counter 
 	(input 	wire		clk_i 
 	,input 	wire		reset_i
-	,output reg	[3:0] 	Q_o
+	,output reg	[3:0] 	q_o
 	);
 
-	wire 	rst_inv_r;
+	wire q0, q1, q2, q3;
 	
-	not u1 (rst_inv_r, reset_i);
+	
 	
 	
 endmodule

@@ -1,4 +1,4 @@
-// This is a 4-bit synchronous Johnson down counter
+// This is a 4-bit synchronous Johnson down counter using behavioral style
 
 module johnson_down_counter
 	(input	wire		clk_i
