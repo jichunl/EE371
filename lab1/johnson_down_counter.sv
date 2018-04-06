@@ -12,7 +12,7 @@ module johnson_down_counter
 
 	always @(posedge clk_i or negedge rst_i) begin
 		if (~rst_i) begin
-			state_r <= 4'b1000;
+			state_r <= 4'b1111;
 		end else begin
 			case(state_r)
 				4'b1000: state_r <= 4'b1100;

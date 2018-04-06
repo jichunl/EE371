@@ -21,11 +21,14 @@ int main(void) {
 	// get the data from the user
 	// 	the data will be a floating point number: %f
 	//	stored in the variable 'a'
-	//
+	//	the & operator takes the address of the variable 'a'
 	scanf("%f", &a);
-
+	
+	// remove newline from input buffer
 	getchar();
-
+	
+	// print the user data to the display
+	// 	the format will be xx.yy
 	printf("the data is %2.2f\n", a);
 	
 	return 0;
